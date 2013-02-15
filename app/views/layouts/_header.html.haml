@@ -1,0 +1,30 @@
+.navbar.navbar-inner
+  %center.brand#headlink
+    = link_to "SinisterBunneh", gallery_index_path
+  .container
+    %ul.nav.pull-right
+      %li
+        =link_to "Gallery", gallery_index_path
+      %li
+        = link_to "Commissions", "#"
+      %li
+        = link_to "Lulu", "http://www.lulu.com/"
+      %li
+        = link_to "deviantArt", "http://sinisterbunneh.deviantart.com"
+      - if user_signed_in?
+        %li
+          %p.navbar-text
+            #{ link_to current_user.email, edit_user_registration_path }
+        %li
+          = link_to "Log Out", destroy_user_session_path, method: "delete"
+      - else
+        %li
+          = link_to "Sign in", user_session_path
+        %li
+          = link_to "Sign up", new_user_registration_path
+        
+
+- if flash[:alert].present?
+  .alert= flash[:alert]
+- if flash[:notice].present?
+  .alert= flash[:notice]
