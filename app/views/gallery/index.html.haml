@@ -2,5 +2,10 @@
   %header
     %h1
       SinisterBunneh
-%nav
-  Test
+.container-fluid
+  .row-fluid
+    = render partial: "leftbar"
+
+    = render partial: "content"
+    
+    = render partial: "rightbar"
