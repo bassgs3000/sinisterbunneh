@@ -1,16 +1,17 @@
 .navbar.navbar-inner
   %center.brand#headlink
-    = link_to "SinisterBunneh", gallery_index_path
+    SinisterBunneh
   .container
     %ul.nav.pull-right
       %li
-        =link_to "Gallery", gallery_index_path
+        = link_to "Gallery", gallery_path
+      - if user_signed_in?
+        %li
+          = link_to "New Art", new_post_path
       %li
-        = link_to "Commissions", "#"
+        = link_to raw("Commissions <span class='label label-success'>Open</span>"), "#"
       %li
-        = link_to "Lulu", "http://www.lulu.com/"
-      %li
-        = link_to "deviantArt", "http://sinisterbunneh.deviantart.com"
+        = link_to "deviantArt", "http://sinisterbunneh.deviantart.com", target: "_blank"
       - if user_signed_in?
         %li
           %p.navbar-text

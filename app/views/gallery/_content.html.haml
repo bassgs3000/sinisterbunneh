@@ -1,3 +1,7 @@
 .hero-unit.span9
   %center
-    Main Content
+    - @posts.each do |post|
+      %center
+        = link_to image_tag(post.image.url(:thumb)), post_path(post)
+        %br/
+        = link_to post.title, post_path(post)

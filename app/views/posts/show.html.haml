@@ -1,0 +1,27 @@
+.container
+  .row-fluid
+
+    %h1= @post.title
+    .span8
+      = image_tag @post.image.url
+
+    %center.hero-unit.span3
+      .nav.underline Navigation
+      - if user_signed_in?
+        %div
+          = link_to "Edit", edit_post_path(@post), class: "btn"
+        %br/
+      - if @post.deviantart.present?
+        %div
+          = link_to "deviantArt page", @post.deviantart, class: "btn", target: "_blank"
+        %br/
+      - if @post.lulu.present?
+        %div
+          = link_to "Lulu page", @post.lulu, class: "btn", target: "_blank"
+        %br/
+
+  .row-fluid
+    %br/
+    %br/
+    .hero-unit
+      = simple_format @post.description
