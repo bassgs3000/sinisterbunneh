@@ -1,7 +1,21 @@
 .hero-unit.span9
-  %center
-    - @posts.each do |post|
-      %center
-        = link_to image_tag(post.image.url(:thumb)), post_path(post)
-        %br/
-        = link_to post.title, post_path(post)
+  - if @posts[0..3]
+    .row-fluid
+      - @posts[0..3].each do |post|
+        = render partial: "grid", locals: { post: post }
+
+  - if @posts[4..7]
+    .row-fluid
+      - @posts[4..7].each do |post|
+        = render partial: "grid", locals: { post: post }
+
+  - if @posts[8..12].present?
+    .row-fluid
+      - @posts[8..12].each do |post|
+        = render partial: "grid", locals: { post: post }
+
+  - if @posts[13..16].present?
+    .row-fluid
+      - @posts[13..16].each do |post|
+        = render partial: "grid", locals: { post: post }
+
