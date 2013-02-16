@@ -5,6 +5,15 @@ class PostsController < ApplicationController
 
   def new
     @post = Post.new
+    respond_to do |format|
+      if user_signed_in?
+        format.html
+        format.json { render json: @post }
+      else
+        format.html { redirect_to new_user_session_path, alert: 'Please sign in to add a post' }
+        format.json { render :layout=>false }
+      end
+    end
   end
 
   def create
@@ -35,7 +44,7 @@ class PostsController < ApplicationController
         format.html
         format.json { render json: @post }
       else
-        format.html { redirect_to new_user_session_path, notice: 'Please sign in to edit a post' }
+        format.html { redirect_to new_user_session_path, alert: 'Please sign in to edit a post' }
         format.json { render :layout=>false }
       end
     end
@@ -60,7 +69,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to gallery_path }
+      format.html { redirect_to gallery_path, notice: "Successfully deleted #{@news.title}" }
       format.json { head :no_content }
     end
   end

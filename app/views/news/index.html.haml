@@ -1,0 +1,8 @@
+.container-fluid
+  .row-fluid
+    .hero-unit.offset1.span4
+      .offset3.underline News
+      %ul
+        - @news.each do |entry|
+          %li
+            = link_to entry.date.strftime("%B #{entry.date.day.ordinalize}, %Y - #{entry.title}"), news_path(entry)

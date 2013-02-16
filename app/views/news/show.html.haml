@@ -1,0 +1,18 @@
+.container-fluid
+  .row-fluid
+    .offset1
+      %h1= @news.title
+      = @news.date.strftime("%B #{@news.date.day.ordinalize}, %Y")
+    %br/
+    %br/
+    .hero-unit.span6
+      = simple_format @news.content
+    - unless @news.image.url == "/images/original/missing.png"
+      %center.hero-unit.span5
+        = image_tag @news.image.url
+- if user_signed_in?
+  .row-fluid.offset1
+    = link_to "Edit Entry", edit_news_path(@news), class: "btn"
+    %br/
+    %br/
+    %br/

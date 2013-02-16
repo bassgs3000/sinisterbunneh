@@ -1,4 +1,5 @@
 Sinisterbunneh::Application.routes.draw do
+  resources :news
   resources :posts
   match "/gallery" => "gallery#index" 
 
