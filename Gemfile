@@ -10,6 +10,8 @@ gem 'capistrano'
 gem 'capistrano-ext'
 gem 'rvm-capistrano', '1.3.0.rc1'
 gem 'paperclip'
+gem 'will_paginate', '> 3.0'
+gem 'will_paginate-bootstrap'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

@@ -1,21 +1,10 @@
 .hero-unit.span9
-  - if @posts[0..3]
+  - @posts.each_slice(4) do |post|
     .row-fluid
-      - @posts[0..3].each do |post|
-        = render partial: "grid", locals: { post: post }
-
-  - if @posts[4..7]
-    .row-fluid
-      - @posts[4..7].each do |post|
-        = render partial: "grid", locals: { post: post }
-
-  - if @posts[8..12].present?
-    .row-fluid
-      - @posts[8..12].each do |post|
-        = render partial: "grid", locals: { post: post }
-
-  - if @posts[13..16].present?
-    .row-fluid
-      - @posts[13..16].each do |post|
-        = render partial: "grid", locals: { post: post }
-
+      - post.each do |img|
+        %center.span3
+          = link_to image_tag(img.image.url(:thumb)), post_path(img)
+          %br/
+          = link_to img.title, post_path(img)
+  %center.row-fluid
+    = will_paginate @posts, renderer: BootstrapPagination::Rails
