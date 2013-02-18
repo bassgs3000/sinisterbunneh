@@ -66,11 +66,18 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
+    if user_signed_in?
+      @post.destroy
+    end
 
     respond_to do |format|
-      format.html { redirect_to gallery_path, notice: "Successfully deleted #{@news.title}" }
-      format.json { head :no_content }
+      if user_signed_in?
+        format.html { redirect_to gallery_path, notice: "Successfully deleted #{@post.title}" }
+        format.json { head :no_content }
+      else
+        format.html { redirect_to new_user_session_path, alert: 'Please sign in to delete a post' }
+        format.json { render :layout=>false }
+      end
     end
   end
 end
