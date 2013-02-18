@@ -1,7 +1,10 @@
 .container-fluid
   .row-fluid
-    .hero-unit.offset1.span4
-      .offset3.underline News
+    %h1.offset5
+      .underline 
+        News
+  .row-fluid
+    .hero-unit.offset4.span4
       %ul
         - @news.each do |entry|
           %li
