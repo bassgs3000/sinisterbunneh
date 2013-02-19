@@ -6,7 +6,7 @@
     %br/
     %br/
     .hero-unit.span6
-      = simple_format @news.content
+      = simple_format convert(@news.content)
     - unless @news.image.url == "/images/original/missing.png"
       %center.hero-unit.span5
         = image_tag @news.image.url
