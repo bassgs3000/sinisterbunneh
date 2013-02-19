@@ -7,7 +7,10 @@
   .row-fluid
     .hero-unit.offset2.span8
       Comissions Status: 
-      %span.label.label-success Open
+      - if @comission.status
+        %span.label.label-success Open
+      - else
+        %span.label.label-important Closed
       - if user_signed_in?
         = link_to "Edit Status", edit_comission_path(@comission), class: "btn"
 

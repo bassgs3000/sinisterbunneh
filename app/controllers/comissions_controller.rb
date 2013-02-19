@@ -1,18 +1,42 @@
 class ComissionsController < ApplicationController
   def index
-    @comission = Comission.all.last
+    #Check if Table is empty, if it is, make an entry.
+    if Comission.last.present?
+      @comission = Comission.last
+    else
+      Comission.create(status: true)
+      @comission = Comission.last
+    end
   end
 
   def show
-    @comission = Comission.all.last
+    redirect_to comissions_path
   end
 
   def edit
-    @comission = Comission.all.last
+    @comission = Comission.last
+    respond_to do |format|
+      if user_signed_in?
+        format.html
+        format.json { render json: @comission }
+      else
+        format.html { redirect_to new_user_session_path, alert: 'Please sign in to edit the comission' }
+        format.json { render :layout=>false }
+      end
+    end
   end
 
   def update
-    @comission = Comission.all.last
+    @comission = Comission.last
+    respond_to do |format|
+      if @comission.update_attributes(params[:comission])
+        format.html { redirect_to comissions_path, notice: 'Comission was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @comission.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def new
