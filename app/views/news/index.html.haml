@@ -6,6 +6,6 @@
   .row-fluid
     .hero-unit.offset4.span4
       %ul
-        - @news.each do |entry|
+        - @news.reverse.each do |entry|
           %li
             = link_to entry.date.strftime("%B #{entry.date.day.ordinalize}, %Y - #{entry.title}"), news_path(entry)
