@@ -11,12 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130218213422) do
+ActiveRecord::Schema.define(:version => 20130219215333) do
 
   create_table "comissions", :force => true do |t|
     t.boolean  "status"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.text     "content"
   end
 
   create_table "news", :force => true do |t|
@@ -57,6 +58,10 @@ ActiveRecord::Schema.define(:version => 20130218213422) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

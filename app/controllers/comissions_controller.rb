@@ -4,7 +4,7 @@ class ComissionsController < ApplicationController
     if Comission.last.present?
       @comission = Comission.last
     else
-      Comission.create(status: true)
+      Comission.create(status: true, content: "Comission Info goes here.")
       @comission = Comission.last
     end
   end

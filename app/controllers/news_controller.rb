@@ -28,7 +28,7 @@ class NewsController < ApplicationController
         format.json { render json: news_path(@news), status: :created, location: @news }
       else
         format.html { render action: "new" }
-        format.json { render json: @news.errors, status: :unprocessable_entity }
+        format.json { render json: @news.errors, notice: :unprocessable_entity }
       end
     end
   end
