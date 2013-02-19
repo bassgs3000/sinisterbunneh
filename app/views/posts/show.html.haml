@@ -24,4 +24,4 @@
     %br/
     %br/
     .hero-unit
-      = simple_format @post.description
+      = simple_format(convert(@post.description), {}, sanitize: false)
