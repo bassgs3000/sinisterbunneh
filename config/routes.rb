@@ -1,5 +1,7 @@
 Sinisterbunneh::Application.routes.draw do
+
   resources :news, :posts, :commissions
+
   match "/gallery" => "gallery#index" 
 
   devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
