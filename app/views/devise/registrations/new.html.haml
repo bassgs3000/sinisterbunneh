@@ -7,5 +7,6 @@
         = f.input :email, :required => true, :autofocus => true
         = f.input :password, :required => true
         = f.input :password_confirmation, :required => true
+        = f.input :registration_code
         = f.button :submit, "Sign up", class: "btn"
       = render "devise/shared/links"

@@ -1,8 +1,5 @@
 Sinisterbunneh::Application.routes.draw do
 
-  resources :locks
-
-
   resources :news, :posts, :commissions
 
   match "/gallery" => "gallery#index" 
