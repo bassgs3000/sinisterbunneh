@@ -1,6 +1,6 @@
-class CreateCommissions < ActiveRecord::Migration
+class CreateLocks < ActiveRecord::Migration
   def change
-    create_table :commissions do |t|
+    create_table :locks do |t|
       t.boolean :status, default: false
 
       t.timestamps
