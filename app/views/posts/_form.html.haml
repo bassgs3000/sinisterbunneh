@@ -1,0 +1,7 @@
+= simple_form_for @post, html: { multipart: true } do |f|
+    = f.input :title
+    = f.file_field :image
+    = f.input :description
+    = f.input :deviantart
+    = f.input :lulu
+    = f.button :submit, class: "btn"

@@ -1,0 +1,20 @@
+.container-fluid
+  .row-fluid
+    %h1.offset5
+      .underline 
+        Commissions
+      
+  .row-fluid
+    .hero-unit.offset2.span8
+      Commissions Status: 
+      - if @commission.status
+        %span.label.label-success Open
+      - else
+        %span.label.label-important Closed
+      - if user_signed_in?
+        = link_to "Edit Status", edit_commission_path(@commission), class: "btn"
+
+      %br/
+      %br/
+      = simple_format(convert(@commission.content))
+      

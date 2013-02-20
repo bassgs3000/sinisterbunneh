@@ -1,0 +1,7 @@
+= simple_form_for @news, html: { multipart: true } do |f|
+    = f.input :title
+    = f.input :date, order: [:month,:day,:year]
+    = f.input :content, class: "span4"
+    = f.file_field :image
+    %br/
+    = f.button :submit, class: "btn"

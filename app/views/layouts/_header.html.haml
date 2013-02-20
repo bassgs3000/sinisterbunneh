@@ -1,0 +1,41 @@
+.navbar.navbar-inner
+  %center.brand#headlink
+    SinisterBunneh
+  .container
+    %ul.nav.pull-right
+      %li
+        = link_to "Gallery", gallery_path
+      - if user_signed_in?
+        %li
+          = link_to "New Art", new_post_path
+      %li
+        = link_to "News", news_index_path
+      - if user_signed_in?
+        %li
+          = link_to "News Entry", new_news_path
+
+      %li
+        - if Commission.all.last.present?
+          - if Commission.all.last.status
+            = link_to raw("Commissions <span class='label label-success'>Open</span>"), commissions_path
+          - else
+            = link_to raw("Commissions <span class='label label-important'>Closed</span>"), commissions_path
+        - else
+          = link_to raw("Commissions <span class='label'>Click to Refresh Status</span>"), commissions_path
+      %li
+        = link_to "deviantArt", "http://sinisterbunneh.deviantart.com", target: "_blank"
+      - if user_signed_in?
+        %li
+          %p.navbar-text
+            #{ link_to current_user.email, edit_user_registration_path }
+        %li
+          = link_to "Log Out", destroy_user_session_path, method: "delete"
+      - else
+        %li
+          = link_to "Sign in", user_session_path
+        
+
+- if flash[:alert].present?
+  .alert= flash[:alert]
+- if flash[:notice].present?
+  .alert.alert-success= flash[:notice]

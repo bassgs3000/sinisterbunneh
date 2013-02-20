@@ -1,0 +1,20 @@
+.hero-unit.span3
+  %center
+    .underline
+      News
+    - if @news.length < 4
+      - @news[(@news.length * -1)..-1].reverse.each do |entry|
+        - if entry == @news.last
+          %li.firstentry
+            = link_to entry.date.strftime("%B #{entry.date.day.ordinalize}, %Y - #{entry.title}"), news_path(entry)
+        - else
+          %li
+            = link_to entry.date.strftime("%B #{entry.date.day.ordinalize}, %Y - #{entry.title}"), news_path(entry)
+    - else
+      - @news[-4..-1].reverse.each do |entry|
+        - if entry == @news.last
+          %li.firstentry
+            = link_to entry.date.strftime("%B #{entry.date.day.ordinalize}, %Y - #{entry.title}"), news_path(entry)
+        - else
+          %li
+            = link_to entry.date.strftime("%B #{entry.date.day.ordinalize}, %Y - #{entry.title}"), news_path(entry)
