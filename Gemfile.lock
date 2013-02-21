@@ -67,6 +67,7 @@ GEM
     eventmachine (1.0.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    google-analytics-rails (0.0.3)
     haml (4.0.0)
       tilt
     haml-rails (0.4)
@@ -191,6 +192,7 @@ DEPENDENCIES
   capistrano-ext
   coffee-rails (~> 3.2.1)
   devise
+  google-analytics-rails
   haml-rails
   jquery-rails
   meta_request
