@@ -11,19 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130220143656) do
+ActiveRecord::Schema.define(:version => 20130219215333) do
 
   create_table "commissions", :force => true do |t|
-    t.boolean  "status",     :default => false
-    t.datetime "created_at",                                  :null => false
-    t.datetime "updated_at",                                  :null => false
-    t.text     "content",    :default => "Content goes here"
-  end
-
-  create_table "locks", :force => true do |t|
-    t.boolean  "status",     :default => false
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.boolean  "status"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.text     "content"
   end
 
   create_table "news", :force => true do |t|
