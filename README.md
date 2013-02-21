@@ -33,3 +33,5 @@ This site was programmed and designed by Edwin Millan-Rodriguez.
 
 All gems are property of their respective owners and I claim no ownership of
 them. 
+
+Awesome CSS colorscheme for bootstrap came from here http://bootswatch.com/cyborg/
