@@ -16,5 +16,6 @@
 
       %br/
       %br/
-      = simple_format(convert(@commission.content))
+      %div
+      = simple_format(convert(@commission.content), {}, sanitize: false)
       
