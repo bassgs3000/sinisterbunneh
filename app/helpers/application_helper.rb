@@ -5,7 +5,7 @@ module ApplicationHelper
   end
   def convert(fulltext)
     fulltext = fulltext.gsub(/<url="(https?:\/\/[\S]+)">(.+)<\/url>/) {"<a href=\"#{$1}\">#{$2}</a>"}
-    fulltext = fulltext.gsub(/<url="(https?:\/\/[\S]+)">/) {"<a href=\"#{$1}\">#{$1}</a>"}
+    #fulltext = fulltext.gsub(/<url="(https?:\/\/[\S]+)">/) {"<a href=\"#{$1}\">#{$1}</a>"}
     fulltext = fulltext.gsub(/<color="(\w+)">(.+)<\/color>/) {"<span style=\"color:#{$1};\">#{$2}</span>"}
     fulltext = fulltext.gsub(/<img="(https?:\/\/[\S]+)">/) { "<img src=\"#{$1}\">" }
     fulltext = fulltext.gsub(/<thumb="(https?:\/\/[\S]+)">/) { "<img src=\"#{$1}\" height=\"120\" width=\"120\""}
