@@ -1,7 +1,7 @@
 class CommissionsController < ApplicationController
   def index
     #Check if Table is empty, if it is, make an entry.
-    @commission = Commission.first_or_create
+    @commission = Commission.first_or_create(content: "Content goes here")
   end
 
   def show
@@ -9,7 +9,7 @@ class CommissionsController < ApplicationController
   end
 
   def edit
-    @commission = Commission.first_or_create
+    @commission = Commission.first_or_create(content: "Content goes here")
     respond_to do |format|
       if user_signed_in?
         format.html
@@ -22,7 +22,7 @@ class CommissionsController < ApplicationController
   end
 
   def update
-    @commission = Commission.first_or_create
+    @commission = Commission.first_or_create(content: "Content goes here")
     respond_to do |format|
       if @commission.update_attributes(params[:commission])
         format.html { redirect_to commissions_path, notice: 'Commission was successfully updated.' }
